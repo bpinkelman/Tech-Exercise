@@ -1,0 +1,39 @@
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Classes`
+
+CREATE TABLE `Classes`
+(
+ `id`           int NOT NULL AUTO_INCREMENT ,
+ `Name`         varchar(45) NOT NULL ,
+ `CourseNumber` int NOT NULL ,
+
+PRIMARY KEY (`id`)
+) AUTO_INCREMENT=1;
+
+
+
+
+
+
+-- ************************************** `Assignments`
+
+CREATE TABLE `Assignments`
+(
+ `id`         int NOT NULL AUTO_INCREMENT ,
+ `Name`       varchar(45) NOT NULL ,
+ `DueDate`    date NOT NULL ,
+ `completion` bit NOT NULL ,
+ `Class`      int NOT NULL ,
+
+PRIMARY KEY (`id`),
+KEY `fkIdx_126` (`Class`),
+CONSTRAINT `FK_126` FOREIGN KEY `fkIdx_126` (`Class`) REFERENCES `Classes` (`id`)
+);
+
+
+
+
+
